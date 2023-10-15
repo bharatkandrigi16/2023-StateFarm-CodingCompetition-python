@@ -188,7 +188,7 @@ class SimpleDataTool:
         for state in states:
             heapq.heappush(total_cost_by_state_tuple_list, (-num_disasters_by_state_dict[state], state))
 
-        return heapq.heappop()[1]
+        return heapq.heappop(total_cost_by_state_tuple_list)[1]
         
 
     def get_state_with_least_disasters(self):
@@ -220,7 +220,7 @@ class SimpleDataTool:
         for state in states:
             heapq.heappush(total_cost_by_state_tuple_list, (num_disasters_by_state_dict[state], state))
 
-        return heapq.heappop()[1]
+        return heapq.heappop(total_cost_by_state_tuple_list)[1]
         
     
     def get_most_spoken_agent_language_by_state(self, state):
@@ -250,7 +250,7 @@ class SimpleDataTool:
         for num, language in list(lang_dict_by_state.values()):
             heapq.heappush(spoken_languages, (-num, language))
         
-        return heapq.heappop()[1]
+        return heapq.heappop(spoken_languages)[1]
 
     def get_num_of_open_claims_for_agent_and_severity(self, agent_id, min_severity_rating):
         """Returns the number of open claims for a specific agent and for a minimum severity level and higher
